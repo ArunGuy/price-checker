@@ -34,8 +34,12 @@ export const editProduct = (updatedProduct) => {
   return Promise.reject(new Error('Product not found'));
 };
 
-export const loadProductsFromCSV = async (fileName) => {
-  products = await loadFromCSV(fileName);
+export const loadProductsFromCSV = async (fileName, loadedProducts = null) => {
+  if (loadedProducts) {
+    products = loadedProducts;
+  } else {
+    products = await loadFromCSV(fileName);
+  }
   currentFileName = fileName;
   return products;
 };
