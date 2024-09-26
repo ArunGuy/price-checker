@@ -1,6 +1,3 @@
-// ในสถานการณ์จริง คุณจะต้องใช้ API หรือ backend service เพื่อจัดการข้อมูลสินค้า
-// ตัวอย่างนี้เป็นเพียงการจำลองการทำงานเท่านั้น
-
 let products = [
   { id: 1, name: 'สินค้า A', price: 100 },
   { id: 2, name: 'สินค้า B', price: 200 },
@@ -25,4 +22,13 @@ export const addProduct = (product) => {
   };
   products.push(newProduct);
   return Promise.resolve(newProduct);
+};
+
+export const editProduct = (updatedProduct) => {
+  const index = products.findIndex((p) => p.id === updatedProduct.id);
+  if (index !== -1) {
+    products[index] = { ...products[index], ...updatedProduct };
+    return Promise.resolve(products[index]);
+  }
+  return Promise.reject(new Error('Product not found'));
 };
