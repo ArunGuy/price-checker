@@ -37,12 +37,12 @@ const CSVLoader = () => {
 
   return (
     <div className="mb-8">
-      <h2 className="text-2xl font-semibold mb-4">โหลดข้อมูลจาก CSV</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-gray-800">โหลดข้อมูลจาก CSV</h2>
       <div className="flex gap-2">
         <select
           value={selectedFile}
           onChange={(e) => setSelectedFile(e.target.value)}
-          className="flex-grow px-4 py-2 border rounded"
+          className="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="">เลือกไฟล์ CSV</option>
           {csvFiles?.map((file) => (
@@ -53,7 +53,7 @@ const CSVLoader = () => {
         </select>
         <button
           onClick={handleLoadCSV}
-          className="bg-green-500 text-white px-4 py-2 rounded"
+          className="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300"
         >
           โหลด CSV
         </button>
