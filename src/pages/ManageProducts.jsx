@@ -40,26 +40,28 @@ const ManageProducts = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <AddProduct />
-          <div className="mt-4">
+          <div className="mt-4 flex flex-col space-y-2">
             <button
               onClick={handleSaveToLocal}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors mr-2"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
             >
               บันทึก CSV ลงเครื่อง
             </button>
-            <input
-              type="file"
-              accept=".csv"
-              onChange={handleLoadFromLocal}
-              className="hidden"
-              id="csvFileInput"
-            />
-            <label
-              htmlFor="csvFileInput"
-              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors cursor-pointer"
-            >
-              โหลด CSV จากเครื่อง
-            </label>
+            <div>
+              <input
+                type="file"
+                accept=".csv"
+                onChange={handleLoadFromLocal}
+                className="hidden"
+                id="csvFileInput"
+              />
+              <label
+                htmlFor="csvFileInput"
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors cursor-pointer inline-block"
+              >
+                โหลด CSV จากเครื่อง
+              </label>
+            </div>
           </div>
         </div>
         <div>
