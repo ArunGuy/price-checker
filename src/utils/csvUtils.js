@@ -3,7 +3,7 @@ import { parse, unparse } from 'papaparse';
 export const getAvailableCSVFiles = () => {
   // ในสถานการณ์จริง คุณจะต้องใช้ API หรือ backend service เพื่อจัดการไฟล์ CSV
   // ตัวอย่างนี้เป็นเพียงการจำลองการทำงานเท่านั้น
-  return Promise.resolve(['products1.csv', 'products2.csv', 'products3.csv']);
+  return Promise.resolve(['products.csv', 'test_products.csv']);
 };
 
 export const loadFromCSV = (fileName) => {
