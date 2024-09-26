@@ -19,7 +19,7 @@ const ProductSearch = () => {
   return (
     <div className="mb-8">
       <h2 className="text-2xl font-semibold mb-4 text-gray-800">ค้นหาสินค้า</h2>
-      <form onSubmit={handleSearch} className="flex gap-2">
+      <form onSubmit={handleSearch} className="flex gap-2 mb-4">
         <input
           type="text"
           value={searchTerm}
@@ -35,11 +35,14 @@ const ProductSearch = () => {
         <div className="mt-6">
           <h3 className="text-xl font-semibold mb-2 text-gray-800">ผลการค้นหา</h3>
           {searchResults.length > 0 ? (
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {searchResults.map((product) => (
                 <li key={product.id} className="bg-white p-4 rounded-lg shadow">
+                  {product.imageUrl && (
+                    <img src={product.imageUrl} alt={product.name} className="w-full h-48 object-cover mb-2 rounded" />
+                  )}
                   <span className="font-medium text-gray-800">{product.name}</span>
-                  <span className="ml-2 text-gray-600">- ราคา: {product.price} บาท</span>
+                  <span className="block text-gray-600">ราคา: {product.price} บาท</span>
                 </li>
               ))}
             </ul>

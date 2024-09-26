@@ -5,6 +5,7 @@ import { editProduct } from '../utils/productStore';
 const EditProduct = ({ product, onClose }) => {
   const [name, setName] = useState(product.name);
   const [price, setPrice] = useState(product.price);
+  const [imageUrl, setImageUrl] = useState(product.imageUrl || '');
   const queryClient = useQueryClient();
 
   const editProductMutation = useMutation({
@@ -22,7 +23,7 @@ const EditProduct = ({ product, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && price) {
-      editProductMutation.mutate({ id: product.id, name, price: parseFloat(price) });
+      editProductMutation.mutate({ id: product.id, name, price: parseFloat(price), imageUrl });
     } else {
       alert('กรุณากรอกชื่อสินค้าและราคา');
     }
@@ -30,22 +31,29 @@ const EditProduct = ({ product, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg">
+      <div className="bg-white p-6 rounded-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold mb-4">แก้ไขสินค้า</h2>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="ชื่อสินค้า"
-            className="px-4 py-2 border rounded"
+            className="w-full px-4 py-2 border rounded"
           />
           <input
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             placeholder="ราคา"
-            className="px-4 py-2 border rounded"
+            className="w-full px-4 py-2 border rounded"
+          />
+          <input
+            type="url"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            placeholder="URL รูปภาพ (ไม่บังคับ)"
+            className="w-full px-4 py-2 border rounded"
           />
           <div className="flex justify-end gap-2">
             <button type="button" onClick={onClose} className="bg-gray-300 text-black px-4 py-2 rounded">

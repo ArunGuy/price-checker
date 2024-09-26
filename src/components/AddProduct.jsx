@@ -5,6 +5,7 @@ import { addProduct } from '../utils/productStore';
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
   const queryClient = useQueryClient();
 
   const addProductMutation = useMutation({
@@ -13,6 +14,7 @@ const AddProduct = () => {
       queryClient.invalidateQueries('products');
       setName('');
       setPrice('');
+      setImageUrl('');
       alert('เพิ่มสินค้าเรียบร้อยแล้ว');
     },
     onError: (error) => {
@@ -23,7 +25,7 @@ const AddProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && price) {
-      addProductMutation.mutate({ name, price: parseFloat(price) });
+      addProductMutation.mutate({ name, price: parseFloat(price), imageUrl });
     } else {
       alert('กรุณากรอกชื่อสินค้าและราคา');
     }
@@ -45,6 +47,13 @@ const AddProduct = () => {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           placeholder="ราคา"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          type="url"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+          placeholder="URL รูปภาพ (ไม่บังคับ)"
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button 
