@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getAvailableCSVFiles, loadCSVFile } from '../utils/csvUtils';
+import { loadProductsFromCSV } from '../utils/productStore';
 
 const CSVLoader = () => {
   const [selectedFile, setSelectedFile] = useState('');
@@ -12,7 +13,11 @@ const CSVLoader = () => {
   });
 
   const loadCSVMutation = useMutation({
-    mutationFn: loadCSVFile,
+    mutationFn: async (fileName) => {
+      const products = await loadCSVFile(fileName);
+      await loadProductsFromCSV(fileName);
+      return products;
+    },
     onSuccess: () => {
       queryClient.invalidateQueries('products');
       alert('CSV ไฟล์ถูกโหลดเรียบร้อยแล้ว');
