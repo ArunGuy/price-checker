@@ -17,11 +17,19 @@ export const getAllProducts = async (page = 0, limit = 12) => {
   return products.slice(start, end);
 };
 
-export const searchProducts = (searchTerm) => {
+export const searchProducts = async (searchTerm) => {
+  if (products.length === 0) {
+    try {
+      products = await loadFromCSV(currentFileName);
+    } catch (error) {
+      console.error('Error loading products:', error);
+      return [];
+    }
+  }
   const results = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  return Promise.resolve(results);
+  return results;
 };
 
 export const addProduct = async (product) => {

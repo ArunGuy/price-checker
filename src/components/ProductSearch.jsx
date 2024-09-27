@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { Search } from 'lucide-react';
-import { searchProducts } from '../utils/productStore';
 
 const ProductSearch = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
