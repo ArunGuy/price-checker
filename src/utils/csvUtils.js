@@ -36,6 +36,7 @@ export const saveToCSV = async (products, fileName = 'products.csv') => {
   console.log(`บันทึกข้อมูลลงในไฟล์ ${fileName} เรียบร้อยแล้ว`);
   console.log(csv); // แสดงข้อมูล CSV ในคอนโซลเพื่อการตรวจสอบ
   localStorage.setItem('currentFileName', fileName);
+  localStorage.setItem('products', JSON.stringify(products));
   return Promise.resolve();
 };
 
