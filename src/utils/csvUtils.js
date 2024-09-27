@@ -35,12 +35,15 @@ export const saveToCSV = async (products, fileName = 'products.csv') => {
   // ตัวอย่างนี้เป็นเพียงการจำลองการทำงานเท่านั้น
   console.log(`บันทึกข้อมูลลงในไฟล์ ${fileName} เรียบร้อยแล้ว`);
   console.log(csv); // แสดงข้อมูล CSV ในคอนโซลเพื่อการตรวจสอบ
+  localStorage.setItem('currentFileName', fileName);
   return Promise.resolve();
 };
 
 export const loadCSVFile = async (fileName) => {
   console.log(`กำลังโหลดไฟล์ ${fileName}`);
   const products = await loadFromCSV(fileName);
+  localStorage.setItem('products', JSON.stringify(products));
+  localStorage.setItem('currentFileName', fileName);
   return products;
 };
 
@@ -57,6 +60,8 @@ export const saveCSVToLocal = (products, fileName = 'products.csv') => {
     link.click();
     document.body.removeChild(link);
   }
+  localStorage.setItem('products', JSON.stringify(products));
+  localStorage.setItem('currentFileName', fileName);
 };
 
 export const loadCSVFromLocal = (file) => {
@@ -66,11 +71,14 @@ export const loadCSVFromLocal = (file) => {
       parse(e.target.result, {
         header: true,
         complete: (results) => {
-          resolve(results.data.map(item => ({
+          const products = results.data.map(item => ({
             ...item,
             id: parseInt(item.id),
             price: parseFloat(item.price)
-          })));
+          }));
+          localStorage.setItem('products', JSON.stringify(products));
+          localStorage.setItem('currentFileName', file.name);
+          resolve(products);
         },
         error: (error) => {
           reject(error);
