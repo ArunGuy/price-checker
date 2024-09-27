@@ -29,11 +29,12 @@ export const loadFromCSV = (fileName) => {
   });
 };
 
-export const saveToCSV = (products, fileName = 'products.csv') => {
+export const saveToCSV = async (products, fileName = 'products.csv') => {
   const csv = unparse(products);
   // ในสถานการณ์จริง คุณจะต้องใช้ API หรือ backend service เพื่อบันทึกไฟล์
   // ตัวอย่างนี้เป็นเพียงการจำลองการทำงานเท่านั้น
   console.log(`บันทึกข้อมูลลงในไฟล์ ${fileName} เรียบร้อยแล้ว`);
+  console.log(csv); // แสดงข้อมูล CSV ในคอนโซลเพื่อการตรวจสอบ
   return Promise.resolve();
 };
 
@@ -43,7 +44,6 @@ export const loadCSVFile = async (fileName) => {
   return products;
 };
 
-// ฟังก์ชันใหม่สำหรับการบันทึกไฟล์ CSV ลงเครื่องของผู้ใช้
 export const saveCSVToLocal = (products, fileName = 'products.csv') => {
   const csv = unparse(products);
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -59,7 +59,6 @@ export const saveCSVToLocal = (products, fileName = 'products.csv') => {
   }
 };
 
-// ฟังก์ชันใหม่สำหรับการโหลดไฟล์ CSV จากเครื่องของผู้ใช้
 export const loadCSVFromLocal = (file) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
