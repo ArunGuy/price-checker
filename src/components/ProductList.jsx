@@ -35,6 +35,10 @@ const ProductList = () => {
     return <div className="text-center py-4 text-red-500">เกิดข้อผิดพลาดในการโหลดข้อมูล</div>;
   }
 
+  if (!data || !data.pages || data.pages.length === 0) {
+    return <div className="text-center py-4">ไม่พบข้อมูลสินค้า</div>;
+  }
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

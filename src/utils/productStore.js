@@ -3,10 +3,18 @@ import { saveToCSV, loadFromCSV } from './csvUtils';
 let products = [];
 let currentFileName = 'products.csv';
 
-export const getAllProducts = (page = 0, limit = 12) => {
+export const getAllProducts = async (page = 0, limit = 12) => {
+  if (products.length === 0) {
+    try {
+      products = await loadFromCSV(currentFileName);
+    } catch (error) {
+      console.error('Error loading products:', error);
+      return [];
+    }
+  }
   const start = page * limit;
   const end = start + limit;
-  return Promise.resolve(products.slice(start, end));
+  return products.slice(start, end);
 };
 
 export const searchProducts = (searchTerm) => {
