@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Edit } from 'lucide-react';
 import EditProduct from './EditProduct';
 
 const ProductCard = ({ product }) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = React.useState(false);
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
-      {product.imageUrl && (
+      {product.imageUrl ? (
         <img
           src={product.imageUrl}
           alt={product.name}
           className="w-full h-48 object-cover"
         />
+      ) : (
+        <div className="w-full h-48 bg-gray-200 flex items-center justify-center">
+          <span className="text-gray-500">ไม่มีรูปภาพ</span>
+        </div>
       )}
       <div className="p-4">
         <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
