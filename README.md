@@ -1,70 +1,113 @@
-# Welcome to your GPT Engineer project
+# Personal Store Price Tracker
 
-## Project info
+## Project Overview
 
-**URL**: https://run.gptengineer.app/projects/d8cb689e-8e50-40b0-9ab3-b4f578cb6723/improve
+**Purpose**:  
+This application is designed for use in a personal store to efficiently manage and keep track of product prices. It serves as a digital inventory system, allowing store owners to record, update, and monitor the prices of items available in their store.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Add New Products**: Easily add new items to your inventory with their corresponding prices.
+- **Update Prices**: Modify the prices of existing products as needed.
+- **View Inventory**: Display a comprehensive list of all products along with their current prices.
+- **Search Functionality**: Quickly find products by name to view or update their prices.
+- **Categorization**: Organize products into categories for better inventory management.
 
-**Use GPT Engineer**
+## Technologies Used
 
-Simply visit the GPT Engineer project at [GPT Engineer](https://gptengineer.app/projects/d8cb689e-8e50-40b0-9ab3-b4f578cb6723/improve) and start prompting.
+- **Vite**: Fast development build tool for modern web projects.
+- **React**: JavaScript library for building user interfaces.
+- **shadcn-ui**: A set of accessible and customizable UI components.
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
 
-Changes made via gptengineer.app will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in the GPT Engineer UI.
+- **Node.js & npm**: Ensure you have Node.js and npm installed. You can install them using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. **Clone the Repository**:
+    ```sh
+    git clone <YOUR_GIT_URL>
+    ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Navigate to the Project Directory**:
+    ```sh
+    cd <YOUR_PROJECT_NAME>
+    ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Install Dependencies**:
+    ```sh
+    npm install
+    ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Start the Development Server**:
+    ```sh
+    npm run dev
+    ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+    The application will be available at `http://localhost:3000` with auto-reloading enabled.
 
-**Edit a file directly in GitHub**
+## Editing the Code
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+There are multiple ways to edit and manage the codebase:
 
-**Use GitHub Codespaces**
+### Using GPT Engineer
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Visit your [GPT Engineer project](https://gptengineer.app/projects/d8cb689e-8e50-40b0-9ab3-b4f578cb6723/improve) to make changes.
+- Changes made here are automatically committed to the repository.
 
-## What technologies are used for this project?
+### Using Your Preferred IDE
 
-This project is built with .
+1. **Clone the Repository**:
+    ```sh
+    git clone <YOUR_GIT_URL>
+    ```
 
-- Vite
-- React
-- shadcn-ui
-- Tailwind CSS
+2. **Make Changes Locally** using your favorite IDE.
 
-## How can I deploy this project?
+3. **Push Changes**:
+    ```sh
+    git add .
+    git commit -m "Your commit message"
+    git push origin main
+    ```
 
-All GPT Engineer projects can be deployed directly via the GPT Engineer app.
+    Changes will be reflected in the GPT Engineer UI.
 
-Simply visit your project at [GPT Engineer](https://gptengineer.app/projects/d8cb689e-8e50-40b0-9ab3-b4f578cb6723/improve) and click on Share -> Publish.
+### Directly on GitHub
 
-## I want to use a custom domain - is that possible?
+1. Navigate to the desired file in the repository.
+2. Click the "Edit" button (pencil icon).
+3. Make your changes and commit them directly to the repository.
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.gptengineer.app/tips-tricks/custom-domain/)
+### Using GitHub Codespaces
+
+1. Go to your repository on GitHub.
+2. Click the "Code" button and select the "Codespaces" tab.
+3. Create a new Codespace and start editing within the browser environment.
+4. Commit and push your changes when done.
+
+## Deployment
+
+Deploy your project seamlessly using the GPT Engineer app:
+
+1. Visit your [GPT Engineer project](https://gptengineer.app/projects/d8cb689e-8e50-40b0-9ab3-b4f578cb6723/improve).
+2. Click on **Share** -> **Publish** to deploy your application.
+
+## Custom Domains
+
+Currently, custom domains are not supported directly. To deploy your project under a custom domain, consider using [Netlify](https://www.netlify.com/). Refer to the [Custom Domains Documentation](https://docs.gptengineer.app/tips-tricks/custom-domain/) for more details.
+
+## Contribution
+
+Feel free to contribute to this project by submitting issues or pull requests. Your feedback and contributions are highly appreciated!
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+*Happy Managing!*
