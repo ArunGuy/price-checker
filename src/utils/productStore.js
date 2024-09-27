@@ -3,8 +3,10 @@ import { saveToCSV, loadFromCSV } from './csvUtils';
 let products = [];
 let currentFileName = 'products.csv';
 
-export const getAllProducts = () => {
-  return Promise.resolve(products);
+export const getAllProducts = (page = 0, limit = 12) => {
+  const start = page * limit;
+  const end = start + limit;
+  return Promise.resolve(products.slice(start, end));
 };
 
 export const searchProducts = (searchTerm) => {
