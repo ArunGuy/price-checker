@@ -10,12 +10,14 @@ const Index = () => {
   const { data: searchResults, refetch } = useQuery({
     queryKey: ['searchProducts', searchTerm],
     queryFn: () => searchProducts(searchTerm),
-    enabled: false,
+    enabled: searchTerm.length > 0,
   });
 
   const handleSearch = (term) => {
     setSearchTerm(term);
-    refetch();
+    if (term.length > 0) {
+      refetch();
+    }
   };
 
   return (

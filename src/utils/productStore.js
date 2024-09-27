@@ -26,8 +26,9 @@ export const searchProducts = async (searchTerm) => {
       return [];
     }
   }
+  const lowercaseSearchTerm = searchTerm.toLowerCase();
   const results = products.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    product.name.toLowerCase().includes(lowercaseSearchTerm)
   );
   return results;
 };
